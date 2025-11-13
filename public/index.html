@@ -1,1 +1,82 @@
-Sample Test File over Golang http.FileServer
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webシステム構築基礎 第3回課題</title>
+    <script>
+        function updateClock() {
+            // 現在時刻を取得
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // 1桁の場合は0を付ける
+            if (hours < 10) hours = '0' + hours;
+            if (minutes < 10) minutes = '0' + minutes;
+            if (seconds < 10) seconds = '0' + seconds;
+
+            // 時刻を表示
+            var timeString = year + "/" + month + "/" + date + "/" + hours + ':' + minutes + ':' + seconds;
+            document.getElementById('clock').innerHTML = timeString;
+        }
+
+        // 1秒ごとにupdateClock関数を実行
+        setInterval(updateClock, 1000);
+
+        // ページ読み込み時に即座に表示
+        window.onload = updateClock;
+    </script>
+</head>
+<body>
+    <p>佐藤桐(AAA24195)</p>
+
+    <h1>現在時刻</h1>
+    <div id="clock" style="font-size: 64px; font-weight: bold; color: white; border: 2px solid black; background-color: red;">
+        00:00:00
+    </div>
+
+    <img src="https://th.bing.com/th/id/R.dbad0d12c46c1e137035835bd5a3107c?rik=JTD4buWvau6d2g&riu=http%3a%2f%2fwww.tmyun.com%2fmid%2fyun_11956.jpg&ehk=KWXunTWv8bSSSCdr24nPrPDq6fvlYvCeJeI4Rzxt9Fw%3d&risl=&pid=ImgRaw&r=0" width="300" height="300" alt="マルゲリータの画像">
+    <h1>🌐 Phase 0-1: HTML基礎確認</h1>
+    <div>
+        <h2>📝 課題1: 自己紹介セクション作成</h2>
+        <p><strong>指示:</strong> 下記のHTMLコメント部分に、あなたの自己紹介を書いてください。</p>
+        例:
+        <h3>自己紹介</h3>
+        <p>名前: 佐藤桐</p>
+        <p>職業: 大学生</p>
+        <p>趣味: アニメ鑑賞、youtube鑑賞、ゲーム、旅行</p>
+        <p>✅ 完了したら、この課題は終了です</p>
+    </div>
+    <div>
+        <h2>📋 課題2: リスト作成</h2>
+        <p><strong>指示:</strong> 好きな食べ物を5つ、番号付きリスト（ol）で作成してください。</p>
+        <ol>
+            <li>ピザ</li>
+            <li>ハンバーガー</li>
+            <li>寿司</li>
+            <li>チャーハン</li>
+            <li>ラーメン</li>
+            <li>ステーキ</li>
+        </ol>
+    </div>
+    <div>
+        <h2>🔗 課題3: リンク作成</h2>
+        <p><strong>指示:</strong> 以下のリンクを作成してください：</p>
+        <ul>
+            <li>Google（新しいタブで開く）</li>
+            <li>GitHub（新しいタブで開く）</li>
+        </ul>
+      <a href="https://www.google.com/" target="_blank">Google</a>
+      <a href="https://github.co.jp/" target="_blank">GitHub</a>
+    </div>
+
+    <p>
+        <a href="second.html">2ページ目へ</a>
+    </p>
+</body>
+</html>
