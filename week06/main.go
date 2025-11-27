@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"runtime"
   "strconv"
-  "strings"
 )
 
 func main() {
@@ -12,7 +11,6 @@ func main() {
 
 	http.Handle("/", http.FileServer(http.Dir("public/")))
 	http.HandleFunc("/hello", hellohandler)
-        http.HandleFunc("/enq", enqhandler)
 	http.HandleFunc("/fdump", fdump)
 		http.HandleFunc("/bmi",bmihandler)
 
@@ -36,27 +34,12 @@ func fdump(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func enqhandler(w http.ResponseWriter, r *http.Request) {
+func bmihandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
 		fmt.Println("errorだよ")
 	}
-	// r.FormValue("name")として，フォーム中name欄の値を得る
-	fmt.Fprintln(w, r.FormValue("name")+"さん，ご協力ありがとうございます.\n年齢は"+r.FormValue("age")+"で，性別は"+r.FormValue("gend")+"で，出身地は"+r.FormValue("birthplace")+"ですね")
-}
-
-func cal00handler(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		fmt.Println("errorだよ")
-	}
-	price, _ := strconv.Atoi(r.FormValue("price"))
-	num, _ := strconv.Atoi(r.FormValue("num"))
-	fmt.Fprint(w, "合計金額は ")
-	fmt.Fprintln(w, price*num)
-}
-
-func bmihandler(w http.ResponseWriter, r *http.Reques) {
-	if err := r.ParseForm(); err != nil {
-		fmt.Println("errorだよ")
-	}
-
+	weight,_ := strconv.Atoi(r.FormValue("weight"))
+	height,_ := strconv.Atoi(r.FormValue("height"))
+	bmi := float32(weight) / ((float32(height) / 100.0) * (float32(height) / 100.0))
+	fmt.Fprintln(w, bmi)
 }

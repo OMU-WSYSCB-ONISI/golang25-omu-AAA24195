@@ -50,10 +50,37 @@
     </form>
     <!--  -------------------------------------- -->
     <h3>BMI</h3>
+	<form method="GET" action="bmi">
+      <div>
+        <label>体重(kg)：<input name="weight" type="number" step="any" /></label>
+      </div>
+      <div>
+        <label>身長(cm)：<input name="height" type="number" step="any" /></label>
+      </div>
+      <input type="submit" value="送信" />
+      <input type="reset" value="取消" />
+    </form>
     <!--  -------------------------------------- -->
     <h3>計算（加減乗除）</h3>
+	<form method="GET" action="cal02">
+      <input type="number" name="x" /> 演算
+      <input type="number" name="y" /> =
+
+      <!-- ラジオボタン選択肢 -->
+      <input id="kakeru" type="radio" name="cal0" value="*" checked />
+      <label for="kakeru">掛ける</label>
+      <input id="waru" type="radio" name="cal0" value="/" />
+      <label for="waru">割る</label>
+      <input type="submit" value="送信" />
+      <input type="reset" value="取消" />
+	</form>
     <!--  -------------------------------------- -->
     <h3>平均と分布</h3>
+	<form method="GET" action="ave">
+      <div>データ：<input type="text" name="dd" /></div>
+      <input type="submit" value="送信" />
+      <input type="reset" value="取消" />
+    </form>
   </body>
 </html>
 <!--  -------------------------------------- -->
